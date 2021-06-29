@@ -1,0 +1,24 @@
+<h1>Bienvenido Asistente</h1>
+
+<p>Saludo de bienvenida para los asistentes</p>
+
+<h2>Busqueda usuarios</h2>
+
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+    <label for="name">Nombre: </label>
+    <input id="name" type="text" formControlName="name">
+    <br>
+    <label for="rol">Rol: </label>
+    <input id="rol" type="text" formControlName="rol">
+    <br>
+    <button type="submit">Buscar</button>
+</form>
+
+<div *ngIf="userList">
+    <h2>Lista de usuarios</h2>
+    <div *ngFor="let user of userList">
+        <app-user-details [userDetails]="user" [showTitle]="false"></app-user-details>
+        <br>
+    </div>
+</div>
+

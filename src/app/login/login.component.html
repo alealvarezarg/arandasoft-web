@@ -1,0 +1,31 @@
+<h1>Login</h1>
+<div *ngIf="logged">
+    <button (click)="logout()">Logout</button>
+</div>
+<br>
+<div *ngIf="!logged">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label for="username">Usuario: </label>
+        <input id="username" type="text" formControlName="username">
+        <br>
+        <label for="password">Password: </label>
+        <input id="password" type="text" formControlName="password">
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+<div *ngIf="logged">
+    <app-user-details [userDetails]="user" [showTitle]="true"></app-user-details>
+</div>
+<div *ngIf="isAdministrador">
+    <app-administrador-profile></app-administrador-profile>
+</div>
+<div *ngIf="isVisitante">
+    <app-visitante-profile></app-visitante-profile>
+</div>
+<div *ngIf="isEditor">
+    <app-editor-profile></app-editor-profile>
+</div>
+<div *ngIf="isAsistente">
+    <app-asistente-profile></app-asistente-profile>
+</div>
